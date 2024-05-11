@@ -1,2 +1,2 @@
-class Tablero ectends Gameobject {
-  provate
+//class Tablero ectends Gameobject {
+ // provate

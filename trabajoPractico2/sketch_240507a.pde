@@ -1,2 +1,2 @@
-private Tablero tablero;
-private Dado[] dados;
+//private Tablero tablero;
+//private Dado[] dados;
