@@ -1,52 +1,42 @@
-//class Dado extends GameObject {
-  // provate int valor;
-   
-  // public void display(){
-  // }
-   
-  // Public void gnerarValor(){
-  // }
-class Die {
-  int xPos, yPos, dieSize;
-  int side;
+class Dado extends GameObject{
+ 
+  private int imagen;
+  private int[] valor;
 
-  Die(int tempX, int tempY, int tempSize) {
-    xPos=tempX;
-    yPos=tempY;
-    dieSize=tempSize;
-    side=1;
+  public Dado() {
+  
+    valor = new int[6];
+    posicion = new PVector(0, 0);
+  }
+  //
+    public void Posicion(int x, int y) {
+    posicion.set(x,y);
   }
 
-  void display() {
-    noStroke();
-    fill(#FFF3D6);
-    rectMode(CENTER);
-    rect(xPos, yPos, diceSize, diceSize, diceSize/5);
-
-    //dots
-    fill(50);
-    if (side == 1 || side == 3 || side == 5)
-      ellipse(xPos, yPos, diceSize/5, diceSize/5);
-    if (side == 2 || side == 3 || side == 4 || side == 5 || side == 6) {
-      ellipse(xPos - diceSize/4, yPos - diceSize/4, diceSize/5, diceSize/5);
-      ellipse(xPos + diceSize/4, yPos + diceSize/4, diceSize/5, diceSize/5);
-    }
-    if (side == 4 || side == 5 || side == 6) {
-      ellipse(xPos - diceSize/4, yPos + diceSize/4, diceSize/5, diceSize/5);
-      ellipse(xPos + diceSize/4, yPos - diceSize/4, diceSize/5, diceSize/5);
-    }
-    if (side == 6) {
-      ellipse(xPos, yPos - diceSize/4, diceSize/5, diceSize/5);
-      ellipse(xPos, yPos + diceSize/4, diceSize/5, diceSize/5);
-    }
+ 
+  @Override
+  public void display(){
+   imagen = (int) random(imagenes.length);
+   int dado = 0;
+   while (dado < valor.length) {
+    valor[dado] = (int) random(1, 7);
+    dado++;
   }
+}
 
-  void randomize() {
-    side = int(random(1, 7));
+
+  public int getIndiceImagen(){
+    return imagen;
+
   }
   
-  int state(){
-    return side;
+  public void setImagen(int imagen) {
+    this.imagen = imagen;
   }
   
-}   
+ 
+    public int[] getValor(){
+    return valor;
+  }
+
+}
